@@ -1,0 +1,7 @@
+.log
+.sql
+logs
+.json
+.pyc
+.sqlite3
+.vscode
