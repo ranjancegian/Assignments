@@ -1,0 +1,36 @@
+<table class="table table-bordered">
+  <thead>
+    <tr>
+        <th>tags</th>
+        <th>owner</th>
+        <th>is_answered</th>
+        <th>view_count</th>
+        <th>answer_count</th>
+        <th>score</th>
+        <th>link</th>
+        <th>title</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for member in members %}
+      <tr>
+        <td>{{ member.tags }}</td>
+        <td>{{ member.owner }}</td>
+        <td>{{ member.is_answered }}</td>
+        <td>{{ member.view_count }}</td>
+        <td>{{ member.answer_count }}</td>
+        <td>{{ member.score }}</td>
+        <td>{{ member.link }}</td>
+        <td>{{ member.title }}</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% for num in members.paginator.page_range %}
+  {% ifequal num members.number %}
+    <span class="current"><b>{{ num }}</b></span>
+  {% else %}
+    <a href="?page={{ num }}"> {{ num }}</a>
+  {% endifequal %} 
+{% endfor %}
